@@ -51,8 +51,6 @@ public class HotelHomePage extends AbstractPage{
 
     public String destinationSuggestion(){
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        //inputPlace.clear();
-        //inputPlace.click();
         return suggestionMessage.getText();
     }
 
