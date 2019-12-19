@@ -1,6 +1,8 @@
 package util;
 
 import driver.DriverSingleton;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
@@ -12,11 +14,9 @@ import java.io.File;
 import java.io.IOException;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
 
 public class TestListener implements ITestListener {
-
+    private Logger log = LogManager.getRootLogger();
 
     public void onTestStart(ITestResult iTestResult) {
 
