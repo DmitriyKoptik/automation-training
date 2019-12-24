@@ -9,10 +9,8 @@ public class HotelSearchOptions {
 
     public static final String NEW_DESTINATION = "testdata.hotelSearchCriteria.destinationForNextSearch";
 
-    public HotelSearchOptions(String destination, String checkIn, String checkOut) {
+    public HotelSearchOptions(String destination) {
         this.destination = destination;
-        this.checkIn = checkIn;
-        this.checkOut = checkOut;
     }
 
 

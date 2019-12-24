@@ -5,12 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.concurrent.TimeUnit;
+
 public class SearchHotelResult extends AbstractPage {
 
     @FindBy(xpath = "//*[@id=\"img-nav-logo\"]")
     private WebElement homePageButton;
 
-    @FindBy(xpath = "//*[@id=\"city-state-33133\"]")
+    @FindBy(xpath = "//*[@id=\"summary-destination\"]")
     private WebElement destinationName;
 
     @FindBy(xpath = "//*[@id=\"hotel-name-33133\"]")
@@ -34,6 +36,8 @@ public class SearchHotelResult extends AbstractPage {
     @FindBy(xpath = "//*[@id=\"btn-modify-stay-update\"]")
     private WebElement submitChanges;
 
+    @FindBy(xpath = "//*[@id=\"google-suggestions\"]/li[1]")
+    private WebElement firstSuggestion;
 
     public SearchHotelResult(WebDriver driver) {
         super(driver);
@@ -41,6 +45,7 @@ public class SearchHotelResult extends AbstractPage {
     }
 
     public HotelHomePage redirectToHotelHomePage() {
+        driver.manage().timeouts().implicitlyWait(WAIT_TIMEOUT_SECONDS2, TimeUnit.SECONDS);
         homePageButton.click();
         logger.info("Redirecting to home page");
 
@@ -48,6 +53,7 @@ public class SearchHotelResult extends AbstractPage {
     }
 
     public HotelDetailPage redirectToHotelDetailPage() {
+        driver.manage().timeouts().implicitlyWait(WAIT_TIMEOUT_SECONDS2, TimeUnit.SECONDS);
         showDetails.click();
         logger.info("Redirect to page with hotel info");
 
@@ -67,9 +73,11 @@ public class SearchHotelResult extends AbstractPage {
     }
 
     public SearchHotelResult changeDestination(String destination){
+        driver.manage().timeouts().implicitlyWait(WAIT_TIMEOUT_SECONDS2, TimeUnit.SECONDS);
         changeSearch.click();
         destinationInput.click();
         destinationInput.sendKeys(destination);
+        firstSuggestion.click();
         submitChanges.click();
         logger.info("Changing and submitting new destination");
         return this;

@@ -3,7 +3,7 @@
 <suite name="Smoke" verbose="1">
     <test name="UserAccess">
         <classes>
-            <class name="bu.bsu.automation.test.CorrectSearchHotelsTests"/>
+            <class name="test.HotelTests"/>
         </classes>
     </test>
 </suite>

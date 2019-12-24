@@ -10,7 +10,9 @@ public abstract class AbstractPage {
 
     protected abstract AbstractPage openPage();
 
-    protected final int WAIT_TIMEOUT_SECONDS = 2;
+    protected final int WAIT_TIMEOUT_SECONDS = 1;
+    protected final int WAIT_TIMEOUT_SECONDS2 = 20;
+
 
     protected final Logger logger = LogManager.getRootLogger();
 

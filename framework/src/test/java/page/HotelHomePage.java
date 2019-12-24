@@ -22,13 +22,16 @@ public class HotelHomePage extends AbstractPage{
     @FindBy(xpath = "//*[@id='check-res-mover']")
     private WebElement checkReservationsButton;
 
+    @FindBy(xpath = "//*[@id=\"google-suggestions\"]/li[1]")
+    private WebElement firstSuggestion;
+
     @FindBy(xpath = "//*[@id=\"google-suggestions-not-found\"]/li")
     private WebElement alertMessage;
 
     @FindBy(xpath = "//*[@id=\"recent-searches-list\"]/li[1]")
     private WebElement suggestionMessage;
 
-    @FindBy(className = "//*[@id='language-mover']")
+    @FindBy(className = "/html/body/header/div[3]/div[1]/div/nav/div/div[3]/ul[3]/li")
     private WebElement currentPageLang;
 
     @FindBy(className = "//*[@id='language-dropdown']")
@@ -45,7 +48,7 @@ public class HotelHomePage extends AbstractPage{
 
     private By userRegistrationForm = By.id("check-res-by-confirmation-form");
 
-    public HotelHomePage searchForHotels(String destinations, String checkIn, String checkOut) {
+    public HotelHomePage searchForHotels(String destinations) {
         destinationsInput.sendKeys(destinations);
         destinationsInput.click();
         driver.manage().timeouts().implicitlyWait(WAIT_TIMEOUT_SECONDS, TimeUnit.SECONDS);
@@ -54,6 +57,7 @@ public class HotelHomePage extends AbstractPage{
     }
 
     public SearchHotelResult submitHotelSearch() {
+        firstSuggestion.click();
         searchButton.click();
         logger.info("Redirect to page with search results");
 

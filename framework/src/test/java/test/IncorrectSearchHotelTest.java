@@ -16,7 +16,7 @@ public class IncorrectSearchHotelTest extends CommonCondition  {
         HotelSearchOptions hotelSearchOptions = HotelSearchOptionsCreator.withIncorrectDestination();
         String alertMessage = new HotelHomePage(driver)
                 .openPage()
-                .searchForHotels(hotelSearchOptions.getDestination(), hotelSearchOptions.getCheckIn(), hotelSearchOptions.getCheckOut())
+                .searchForHotels(hotelSearchOptions.getDestination())
                 .submitInvalidHotelSearch()
                 .invalidSearchAlertMessage();
         Assert.assertEquals(CITY_NAME_ALERT_TEXT,alertMessage);
@@ -27,7 +27,7 @@ public class IncorrectSearchHotelTest extends CommonCondition  {
         HotelSearchOptions hotelSearchOptions = HotelSearchOptionsCreator.withCorrectSearch();
         String alertText = new HotelHomePage(driver)
                 .openPage()
-                .searchForHotels(hotelSearchOptions.getDestination(), hotelSearchOptions.getCheckIn(), hotelSearchOptions.getCheckOut())
+                .searchForHotels(hotelSearchOptions.getDestination())
                 .submitHotelSearch()
                 .redirectToHotelDetailPage()
                 .redirectToBookingHotelPage()
