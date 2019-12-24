@@ -12,7 +12,7 @@ public class HotelDetailPage extends AbstractPage {
     @FindBy(xpath = "//*[@id=\"summary-complete-hv\"]/span[3]")
     private WebElement priceNumber;
 
-    @FindBy(xpath = "//*[@id=\"room-0-selection\"]/div[3]/div/div[1]/div[3]/div[2]/div[2]/div/div[2]/div[2]/button")
+    @FindBy(xpath = "//*[@id=\"room-0-selection\"]/div[3]/div/div[1]/div[3]/div[1]/div[2]/div/div[2]/div[2]/button")
     private WebElement selectButton;
 
     public HotelDetailPage(WebDriver driver) {
