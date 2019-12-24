@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SearchHotelResult extends AbstractPage {
 
-    @FindBy(xpath = "//*[@id=\"img-nav-logo\"]")
+    @FindBy(xpath = "//*[@id=\"slide-nav\"]/div/div[1]/a")
     private WebElement homePageButton;
 
     @FindBy(xpath = "//*[@id=\"summary-destination\"]")
